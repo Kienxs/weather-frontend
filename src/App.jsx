@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     const fetchSliderData = async () => {
       try {
-        const promises = popularCities.map(c => axios.get(`http://localhost:8080/api/weather?city=${c}`));
+        const promises = popularCities.map(c => axios.get(`https://weather-in-the-world.onrender.com/api/weather?city=${c}`));
         const results = await Promise.all(promises);
         setSliderData(results.map(res => res.data));
       } catch (err) {}
