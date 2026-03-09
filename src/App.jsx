@@ -55,7 +55,7 @@ function App() {
     if (value.trim().length > 1) { 
       const timeout = setTimeout(async () => {
         try {
-          const response = await axios.get(`http://localhost:8080/api/weather/search?query=${value}`);
+          const response = await axios.get(`https://weather-in-the-world.onrender.com/api/weather/search?query=${value}`);
           setSuggestions(response.data);
           setShowSuggestions(true);
         } catch (err) {
@@ -85,8 +85,8 @@ function App() {
       
       // FETCH 2 APIs IN PARALLEL: Current Weather and 5-Day Forecast
       const [weatherRes, forecastRes] = await Promise.all([
-        axios.get(`http://localhost:8080/api/weather?city=${cityName}`),
-        axios.get(`http://localhost:8080/api/weather/forecast?city=${cityName}`)
+        axios.get(`https://weather-in-the-world.onrender.com/api/weather?city=${cityName}`),
+        axios.get(`https://weather-in-the-world.onrender.com/api/weather/forecast?city=${cityName}`)
       ]);
 
       setWeatherData(weatherRes.data);
